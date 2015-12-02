@@ -95,6 +95,15 @@ attack-param-name(){
    return $final
 }
 
+attack-cookies(){
+   echo "Submitting attack vector $1 from file $2 as cookie"
+   payload="vector=$1"
+   status=$(curl --cookie "$payload" $3/$4)
+   echo "status=$status"
+   final=error_check $status $1 $2
+   return $final
+}
+
 attack(){
    path="$3/*"
    echo "path $path"
@@ -103,12 +112,13 @@ attack(){
          if [[ $file == *.pay ]]; then
             echo "Reading from file $file"
             while IFS='' read -r line || [[ -n "$line" ]]; do
-               line=$( echo $line | sed s/\"/\\\"/g )  i
+               line=$( echo $line | sed s/\"/\\\"/g ) 
                attack_simple $line $file $1 $testcase
                attack_stored-procedure $line $file $1 $testcase
                attack-header-based $line $file $1 $testcase
                attack-param-name $line $file $1 $testcase
-            done < "$file"
+	       attack-cookies $line $file $1 $testcase
+           done < "$file"
          fi
       done
    done
