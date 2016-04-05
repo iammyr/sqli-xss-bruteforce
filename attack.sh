@@ -7,7 +7,7 @@
 #!/bin/bash
 
 ERROR_ARGS="Error: Argument/s not provided."
-USAGE="Usage: $0 <web app URL pefix> <file with web app URL suffix to test> <directory with files with payloads>"
+USAGE="Usage: $0 <web app URL> <file listing web app URL suffix to attack> <directory with .pay files containing one malicious payload per line>. Check errors.log for errors."
 ERROR_INVALID="Error: Invalid argument/s provided."
 ERROR_INVALID_CODE=2
 
@@ -46,7 +46,7 @@ init_file(){
 
 error_check(){
    if [[ $1 == Error* ]]; then
-      echo "Error: curl for line $2 in file $3 was not executed." >> error-leftover.log
+      echo "Error: curl for line $2 in file $3 was not executed." >> errors.log
       return $FALSE
    fi
    return $TRUE
@@ -55,10 +55,8 @@ error_check(){
 attack-simple(){
    echo "Submitting payload $1 from file $2"
    payload="vector=$1"
-   echo "curl -X POST -d \"$payload\" $3/$4"
-   status=$(curl -X POST -d "$payload" $3/$4 --trace-ascii dump0.txt)
-   #echo "status=$status"
- #  final=error_check $status $1 $2
+   status=$(curl -X POST -d "$payload" $3/$4)
+   final=error_check $status $1 $2
    return $final
 }
 
@@ -67,40 +65,32 @@ attack-stored-procedure(){
                #escape apostrophes by doubling them (as required by stored procedures to succeed)
                content=cat $1 | sed 's/'"'"'/'"'"''"'"'/g'
                payload="vector='verifyUserPassword(foo,$content)'"
-		echo "curl -X POST -d \"$payload\" $3/$4 --trace-ascii dump1.txt"
-               status=$(curl -X POST -d "$payload" $3/$4 --trace-ascii dump1.txt )
- #              echo "status=$status"
- #              final=error_check $status $1 $2
+               status=$(curl -X POST -d "$payload" $3/$4)
+               final=error_check $status $1 $2
                return $final
 }
 
 attack-header-based(){
    echo "Submitting attack vector $1 from file $2 inside the request header"
    payload="vector: $1"
-	echo "curl -X POST -H \"$payload\" $3/$4 --trace-ascii dump2.txt"
-   status=$(curl -X POST -H "$payload" $3/$4 --trace-ascii dump2.txt)
- #  echo "status=$status"
- #  final=error_check $status $1 $2
+   status=$(curl -X POST -H "$payload" $3/$4)
+   final=error_check $status $1 $2
    return $final      
 }
 
 attack-param-name(){
    echo "Submitting attack vector $1 from file $2 as the payload parameter's name"
    payload="$1=vector"
-	echo "curl -X POST -H \"$payload\" $3/$4 --trace-ascii dump3.txt"
-   status=$(curl -X POST -H "$payload" $3/$4 --trace-ascii dump3.txt)
-  # echo "status=$status"
- #  final=error_check $status $1 $2
+   status=$(curl -X POST -H "$payload" $3/$4)
+   final=error_check $status $1 $2
    return $final
 }
 
 attack-cookies(){
    echo "Submitting attack vector $1 from file $2 as cookie"
    payload="vector=$1"
-	echo "curl --cookie \"$payload\" $3/$4 --trace-ascii dump4.txt"
-   status=$(curl --cookie "$payload" $3/$4 --trace-ascii dump4.txt)
-   #echo "status=$status"
-#   final=error_check $status $1 $2
+   status=$(curl --cookie "$payload" $3/$4)
+   final=error_check $status $1 $2
    return $final
 }
 
