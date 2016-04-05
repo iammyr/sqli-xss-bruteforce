@@ -12,7 +12,8 @@ If you want you can use the malicious payloads provided here under the "payloads
 Instructions are echoed as you run the script with no arguments.
 
 Example: 
+```bash
 $ echo -e "index\npage1\npage2" > suffix.txt
 $ ./attack.sh http://localhost:8080/myapp suffix.txt payloads/
-
-This bruteforce attack is modeled around the OWASP Benchmark web application as a target. For instance, it inserts malicious input as value of the parameter named "vector", most of the times. However, it can be easily modified to comply with other web application's expected input.
+```
+This bruteforce attack is modeled around the OWASP Benchmark web application as a target. For instance, it inserts malicious input as value of the parameter named "vector", most of the times. However, it can be easily modified to comply with the input expected by other web applications.
