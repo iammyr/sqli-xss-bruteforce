@@ -1,0 +1,62 @@
+== Info: About to connect() to localhost port 8080 (#0)
+== Info:   Trying ::1... == Info: connected
+== Info: Connected to localhost (::1) port 8080 (#0)
+=> Send header, 240 bytes (0xf0)
+0000: POST /benchmark/BenchmarkTest00108.html HTTP/1.1
+0032: User-Agent: curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7
+0072:  NSS/3.19.1 Basic ECC zlib/1.2.3 libidn/1.18 libssh2/1.4.2
+00ae: Host: localhost:8080
+00c4: Accept: */*
+00d1: Cookie: vector=bar'or'1'='1
+00ee: 
+<= Recv header, 17 bytes (0x11)
+0000: HTTP/1.1 200 OK
+<= Recv header, 27 bytes (0x1b)
+0000: Server: Apache-Coyote/1.1
+<= Recv header, 22 bytes (0x16)
+0000: Accept-Ranges: bytes
+<= Recv header, 30 bytes (0x1e)
+0000: ETag: W/"1915-1444136236000"
+<= Recv header, 46 bytes (0x2e)
+0000: Last-Modified: Tue, 06 Oct 2015 12:57:16 GMT
+<= Recv header, 25 bytes (0x19)
+0000: Content-Type: text/html
+<= Recv header, 22 bytes (0x16)
+0000: Content-Length: 1915
+<= Recv header, 37 bytes (0x25)
+0000: Date: Tue, 05 Apr 2016 10:10:07 GMT
+<= Recv header, 2 bytes (0x2)
+0000: 
+<= Recv data, 1915 bytes (0x77b)
+0000: <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "
+0040: http://www.w3.org/TR/html4/loose.dtd">.<html>.<head>.<meta http-
+0080: equiv="Content-Type" content="text/html; charset=ISO-8859-1">.<s
+00c0: cript src="js/jquery.min.js"></script>.<script type="text/javasc
+0100: ript" src="js/js.cookie.js"></script>.<title>BenchmarkTest00108<
+0140: /title>.</head>.<body>.<form action="/benchmark/BenchmarkTest001
+0180: 08" method="POST" id="FormBenchmarkTest00108" >.    <div><p>Here
+01c0:  is the image you are looking for: &nbsp;</p></div>.    <div><im
+0200: g src="img/500px-Banner_stand.png"  style="width: 20%; height: 2
+0240: 0%" class="img-responsive" alt="Responsive image" onload="setCoo
+0280: kie('vector','test',1)"></div>.    <div><p>This page automatical
+02c0: ly generated the cookie named vector with the value displayed be
+0300: low,.        if you want to generate a new cookie with a differe
+0340: nt value or use a specific vector, please.        use the text b
+0380: ox "Value" then press the "Generate cookie" button; once you hav
+03c0: e the value you can.        press the "Test it!" to send the coo
+0400: kie.</p></div>.    <div><label>Parameter: cookie vector<BR> Valu
+0440: e:</label>..<input type="text" id="vector" name="vector" value="
+0480: bar"></input></div>..<div><input type="button" value="Generate c
+04c0: ookie" onclick="setCookie('vector',document.getElementById('vect
+0500: or').value,1)" id="cGenerator"/></div>.    <br/>.    <div><h5 id
+0540: ="cValue"></h5></div>..<div><input type="submit" value="Test it!
+0580: " /></div>.</form>.<script>.function setCookie(cname, cvalue, ex
+05c0: days) {..document.cookie = cname + '=; expires=Thu, 01 Jan 1970 
+0600: 00:00:01 GMT;';..var d = new Date();.    d.setTime(d.getTime() +
+0640:  (exdays*24*60*60*1000));.    var expires = "expires="+d.toUTCSt
+0680: ring();.    if(cvalue=='test'){.    .Cookies.set(cname, "FileNam
+06c0: e", { version: 1 });.    }else{.    .console.log(cvalue);.    .C
+0700: ookies.set(cname, cvalue, { version: 1 });    ..    }.   .$("#cV
+0740: alue").text(document.cookie);.}.</script> .</body>.</html>.
+== Info: Connection #0 to host localhost left intact
+== Info: Closing connection #0
