@@ -9,6 +9,7 @@
 ERROR_ARGS="Error: Argument/s not provided."
 USAGE="Usage: $0 <web app URL pefix> <file with web app URL suffix to test> <directory with files with payloads>"
 ERROR_INVALID="Error: Invalid argument/s provided."
+ERROR_INVALID_CODE=2
 
 
 check_existence(){
@@ -16,7 +17,7 @@ check_existence(){
    then
      echo $ERROR_ARGS
      echo $USAGE
-     return $FALSE
+     exit $ERROR_INVALID_CODE
    fi
    return $TRUE
 }
@@ -26,20 +27,14 @@ check_validity(){
    then
      echo $ERROR_INVALID
      echo $USAGE
-     return $FALSE
+     exit $ERROR_INVALID_CODE
    fi
    return $TRUE    
 }
 
 check_args(){
    check_existence $1 $2 $3
-   existence=$?
    check_validity $1 $2 $3
-   validity=$?
-   if [[ ! existence ]] || [[ ! validity ]]
-   then
-     exit 2
-   fi
    return $TRUE
 }
 
@@ -60,9 +55,10 @@ error_check(){
 attack-simple(){
    echo "Submitting payload $1 from file $2"
    payload="vector=$1"
-   status=$(curl -X POST -d "$payload" $3/$4 --trace-ascii dump.txt )
-   echo "status=$status"
-   final=error_check $status $1 $2
+   echo "curl -X POST -d \"$payload\" $3/$4"
+   status=$(curl -X POST -d "$payload" $3/$4 --trace-ascii dump0.txt)
+   #echo "status=$status"
+ #  final=error_check $status $1 $2
    return $final
 }
 
@@ -71,36 +67,40 @@ attack-stored-procedure(){
                #escape apostrophes by doubling them (as required by stored procedures to succeed)
                content=cat $1 | sed 's/'"'"'/'"'"''"'"'/g'
                payload="vector='verifyUserPassword(foo,$content)'"
-               status=$(curl -X POST -d "$payload" $3/$4 --trace-ascii dump.txt )
-               echo "status=$status"
-               final=error_check $status $1 $2
+		echo "curl -X POST -d \"$payload\" $3/$4 --trace-ascii dump1.txt"
+               status=$(curl -X POST -d "$payload" $3/$4 --trace-ascii dump1.txt )
+ #              echo "status=$status"
+ #              final=error_check $status $1 $2
                return $final
 }
 
 attack-header-based(){
    echo "Submitting attack vector $1 from file $2 inside the request header"
    payload="vector: $1"
-   status=$(curl -X POST -H "$payload" $3/$4)
-   echo "status=$status"
-   final=error_check $status $1 $2
+	echo "curl -X POST -H \"$payload\" $3/$4 --trace-ascii dump2.txt"
+   status=$(curl -X POST -H "$payload" $3/$4 --trace-ascii dump2.txt)
+ #  echo "status=$status"
+ #  final=error_check $status $1 $2
    return $final      
 }
 
 attack-param-name(){
    echo "Submitting attack vector $1 from file $2 as the payload parameter's name"
    payload="$1=vector"
-   status=$(curl -X POST -H "$payload" $3/$4)
-   echo "status=$status"
-   final=error_check $status $1 $2
+	echo "curl -X POST -H \"$payload\" $3/$4 --trace-ascii dump3.txt"
+   status=$(curl -X POST -H "$payload" $3/$4 --trace-ascii dump3.txt)
+  # echo "status=$status"
+ #  final=error_check $status $1 $2
    return $final
 }
 
 attack-cookies(){
    echo "Submitting attack vector $1 from file $2 as cookie"
    payload="vector=$1"
-   status=$(curl --cookie "$payload" $3/$4)
-   echo "status=$status"
-   final=error_check $status $1 $2
+	echo "curl --cookie \"$payload\" $3/$4 --trace-ascii dump4.txt"
+   status=$(curl --cookie "$payload" $3/$4 --trace-ascii dump4.txt)
+   #echo "status=$status"
+#   final=error_check $status $1 $2
    return $final
 }
 
@@ -113,11 +113,15 @@ attack(){
             echo "Reading from file $file"
             while IFS='' read -r line || [[ -n "$line" ]]; do
                line=$( echo $line | sed s/\"/\\\"/g ) 
-               attack_simple $line $file $1 $testcase
-               attack_stored-procedure $line $file $1 $testcase
-               attack-header-based $line $file $1 $testcase
-               attack-param-name $line $file $1 $testcase
-	       attack-cookies $line $file $1 $testcase
+		echo "line=$line"
+		echo "file=$file"
+		echo "1=$1"
+		echo "testcase=$testcase"
+               attack-simple "$line" "$file" "$1" "$testcase"
+	       attack-stored-procedure "$line" "$file" "$1" "$testcase"
+               attack-header-based "$line" "$file" "$1" "$testcase"
+               attack-param-name "$line" "$file" "$1" "$testcase"
+	       attack-cookies "$line" "$file" "$1" "$testcase"
            done < "$file"
          fi
       done
