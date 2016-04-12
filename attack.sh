@@ -132,11 +132,6 @@ attack(){
    echo "path $path"
    for testcase in $(cat $2); do
       isSuccess=0
-      if [ $isSuccess -eq 0 ]; then
-	echo "alright"
-      else
-	echo "dho"
-      fi
       for file in $path; do
          if [[ $file == *.pay ]] && [ $isSuccess -eq 0 ]; then
             echo "Reading from file $file"
