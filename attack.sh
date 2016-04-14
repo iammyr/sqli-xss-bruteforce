@@ -73,6 +73,16 @@ attack_param_value(){
    fi
 }
 
+#Submit an attack by including the malicious input as part of the query string
+attack_query_string(){
+   echo "Submitting malicious input $1 via query string from file $2"
+   payload="vector=$1"
+   status=$(curl -X GET $3/$4"?$payload")
+   is_success "$status"
+   if [ $isSuccess -eq 0 ]; then
+        error_check $status $1 $2
+   fi
+}
 
 #Submit an attack by including the malicious payload as an argument for a call to a stored procedure (within a POST parameter value)
 attack_stored_procedure(){
@@ -103,7 +113,7 @@ attack_header(){
 attack_param_name(){
    echo "Submitting attack vector $1 from file $2 as the payload parameter's name"
    payload="$1=vector"
-   status=$(curl -X POST -H "$payload" $3/$4)
+   status=$(curl -X POST -d "$payload" $3/$4)
    is_success "$status"
    if [ $isSuccess -eq 0 ]; then
         error_check $status $1 $2
@@ -136,6 +146,9 @@ attack(){
             while IFS='' read -r line || [[ -n "$line" ]] && [ $isSuccess -eq 0 ]; do
                line=$( echo $line | sed s/\"/\\\"/g ) 
                attack_param_value "$line" $file $1 $testcase
+	       if [ $isSuccess -eq 0 ]; then
+	       	       attack_query_string "$line" $file $1 $testcase
+	       fi
 	       if [ $isSuccess -eq 0 ]; then
 		       attack_stored_procedure "$line" $file $1 $testcase
 	       fi
