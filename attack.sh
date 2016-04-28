@@ -87,9 +87,7 @@ attack_query_string(){
 #Submit an attack by including the malicious payload as an argument for a call to a stored procedure (within a POST parameter value)
 attack_stored_procedure(){
    echo "Submitting payload $1 from file $2 (attacking stored procedures)"
-   #escape apostrophes by doubling them (as required by stored procedures to succeed)
-   content=$(sed 's/'"'"'/'"'"''"'"'/g' <<< "$1")
-   payload="vector='verifyUserPassword(foo,$content)'"
+   payload="vector='verifyUserPassword(foo,$1)'"
    status=$(curl -X POST -d "$payload" $3/$4)
    is_success "$status"
    if [ $isSuccess -eq 0 ]; then
@@ -141,26 +139,30 @@ attack(){
    for testcase in $(cat $2); do
       isSuccess=0
       for file in $path; do
-         if [[ $file == *.pay ]] && [ $isSuccess -eq 0 ]; then
+
+ #        if [[ $file == *.pay ]] && [ $isSuccess -eq 0 ]; then
+         if [[ $file == *.pay ]]; then
             echo "Reading from file $file"
-            while IFS='' read -r line || [[ -n "$line" ]] && [ $isSuccess -eq 0 ]; do
+
+            #while IFS='' read -r line || [[ -n "$line" ]] && [ $isSuccess -eq 0 ]; do
+            while IFS='' read -r line || [[ -n "$line" ]]; do
                line=$( echo $line | sed s/\"/\\\"/g ) 
                attack_param_value "$line" $file $1 $testcase
-	       if [ $isSuccess -eq 0 ]; then
+#	       if [ $isSuccess -eq 0 ]; then
 	       	       attack_query_string "$line" $file $1 $testcase
-	       fi
-	       if [ $isSuccess -eq 0 ]; then
+#	       fi
+#	       if [ $isSuccess -eq 0 ]; then
 		       attack_stored_procedure "$line" $file $1 $testcase
-	       fi
-               if [ $isSuccess -eq 0 ]; then
+#	       fi
+#               if [ $isSuccess -eq 0 ]; then
 	               attack_header "$line" $file $1 $testcase
-               fi
-	       if [ $isSuccess -eq 0 ]; then
+#              fi
+#	       if [ $isSuccess -eq 0 ]; then
 	               attack_param_name "$line" $file $1 $testcase
-	       fi
-	       if [ $isSuccess -eq 0 ]; then
-		       attack_cookie "$line" $file $1 $testcase
-	       fi
+#	       fi
+#	       if [ $isSuccess -eq 0 ]; then
+	 	       attack_cookie "$line" $file $1 $testcase
+#	       fi
            done < "$file"
          fi
       done
