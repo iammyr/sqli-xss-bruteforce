@@ -1,7 +1,7 @@
 # sqli-bruteforce
-SQL Injection Bruteforce
+SQL Injection (SQLi) or Cross-Site Scripting (XSS) Bruteforce
 
-The attack.sh script automates the submission of a series of requests to a Web application which attempt to exploit SQL Injection vulnerabilities through several malicious payloads and attack vectors. 
+The attack.sh script automates the submission of a series of requests to a Web application which attempt to exploit SQLi or XSS vulnerabilities, depending on the set of attack vectors you decide to use (see sqli-payloads and xss-payloads folders). 
 
 The script requires the following input parameters:
 * URL of the Web application to attack
@@ -16,4 +16,4 @@ Example:
 $ echo -e "index\npage1\npage2" > suffix.txt
 $ ./attack.sh http://localhost:8080/myapp suffix.txt payloads/
 ```
-This bruteforce attack is modeled around the OWASP Benchmark web application as a target. For instance, it inserts malicious input as value of the parameter named "vector", most of the times. However, it can be easily modified to comply with the input expected by other web applications.
+This bruteforce attack is modeled around the OWASP Benchmark web application as a target. For instance, it inserts malicious input as value of the parameter named "vector", most of the times. Please, change the PARAMETER constant in the script as appropriate to match the parameter name that your web application of interest is expecting.

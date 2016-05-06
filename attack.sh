@@ -6,6 +6,7 @@
 
 #!/bin/bash
 
+PARAMETER="vector"
 ERROR_ARGS="Error: Argument/s not provided."
 USAGE="Usage: $0 <web app URL> <file listing web app URL suffix to attack> <directory with .pay files containing one malicious payload per line>. Check errors.log for errors."
 # App response indicating that an attack was detected and blocked
@@ -65,7 +66,7 @@ is_success(){
 #Submit an attack by including the malicious payload simply as a POST parameter value.
 attack_param_value(){
    echo "Submitting payload $1 from file $2"
-   payload="vector=$1"
+   payload="$PARAMETER=$1 "
    status=$(curl -X POST -d "$payload" $3/$4)
    is_success "$status"   
    if [ $isSuccess -eq 0 ]; then
@@ -76,7 +77,7 @@ attack_param_value(){
 #Submit an attack by including the malicious input as part of the query string
 attack_query_string(){
    echo "Submitting malicious input $1 via query string from file $2"
-   payload="vector=$1"
+   payload="$PARAMETER=$1"
    status=$(curl -X GET $3/$4"?$payload")
    is_success "$status"
    if [ $isSuccess -eq 0 ]; then
@@ -87,7 +88,7 @@ attack_query_string(){
 #Submit an attack by including the malicious payload as an argument for a call to a stored procedure (within a POST parameter value)
 attack_stored_procedure(){
    echo "Submitting payload $1 from file $2 (attacking stored procedures)"
-   payload="vector='verifyUserPassword(foo,$1)'"
+   payload="$PARAMETER='verifyUserPassword(foo,$1)'"
    status=$(curl -X POST -d "$payload" $3/$4)
    is_success "$status"
    if [ $isSuccess -eq 0 ]; then
@@ -99,7 +100,7 @@ attack_stored_procedure(){
 #Submit an attack by including the malicious payload as the value of a request header.
 attack_header(){
    echo "Submitting attack vector $1 from file $2 inside the request header"
-   payload="vector: $1"
+   payload="$PARAMETER: $1"
    status=$(curl -X POST -H "$payload" $3/$4)
    is_success "$status"
    if [ $isSuccess -eq 0 ]; then
@@ -110,7 +111,7 @@ attack_header(){
 #Submit an attack by including the malicious payload as a POST parameter's name.
 attack_param_name(){
    echo "Submitting attack vector $1 from file $2 as the payload parameter's name"
-   payload="$1=vector"
+   payload="$1=$PARAMETER"
    status=$(curl -X POST -d "$payload" $3/$4)
    is_success "$status"
    if [ $isSuccess -eq 0 ]; then
@@ -122,7 +123,7 @@ attack_param_name(){
 #Submit an attack by including the malicious payload as a cookie value.
 attack_cookie(){
    echo "Submitting attack vector $1 from file $2 as cookie"
-   payload="vector=$1"
+   payload="$PARAMETER=$1"
    status=$(curl --cookie "$payload" $3/$4)
    is_success "$status"
    if [ $isSuccess -eq 0 ]; then
@@ -137,6 +138,7 @@ attack(){
    attacked=0
    echo "path $path"
    for testcase in $(cat $2); do
+      echo "testcase $testcase"
       isSuccess=0
       for file in $path; do
 
@@ -149,7 +151,7 @@ attack(){
                line=$( echo $line | sed s/\"/\\\"/g ) 
                attack_param_value "$line" $file $1 $testcase
 #	       if [ $isSuccess -eq 0 ]; then
-	       	       attack_query_string "$line" $file $1 $testcase
+#	       	       attack_query_string "$line" $file $1 $testcase
 #	       fi
 #	       if [ $isSuccess -eq 0 ]; then
 		       attack_stored_procedure "$line" $file $1 $testcase
