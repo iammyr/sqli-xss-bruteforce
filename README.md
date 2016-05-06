@@ -1,4 +1,4 @@
-# sqli-bruteforce
+# sqli-xss-bruteforce
 SQL Injection (SQLi) or Cross-Site Scripting (XSS) Bruteforce
 
 The attack.sh script automates the submission of a series of requests to a Web application which attempt to exploit SQLi or XSS vulnerabilities, depending on the set of attack vectors you decide to use (see sqli-payloads and xss-payloads folders). 
